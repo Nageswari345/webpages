@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+        }
+        .form-container input, .form-container select, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .actions button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Student Registration Form</h2>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter student name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter student age" required>
+
+        <label for="class">Class:</label>
+        <input type="text" id="class" placeholder="Enter student class" required>
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" placeholder="Enter student branch" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter student phone number" required>
+
+        <label for="college_email">College Email ID:</label>
+        <input type="email" id="college_email" placeholder="Enter college email" required>
+
+        <label for="personal_email">Personal Gmail ID:</label>
+        <input type="email" id="personal_email" placeholder="Enter personal Gmail ID" required>
+
+        <label for="blood_group">Blood Group:</label>
+        <select id="blood_group" required>
+            <option value="">Select blood group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+
+        <button type="submit">Add Student</button>
+    </form>
+</div>
+
+<table id="studentTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Class</th>   
+            <th>Branch</th>
+            <th>Phone</th>
+            <th>College Email</th>
+            <th>Personal Gmail</th>
+            <th>Blood Group</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Dynamic Rows -->
+    </tbody>
+</table>
+
+<script>
+    const studentForm = document.getElementById('studentForm');
+    const studentTable = document.getElementById('studentTable').querySelector('tbody');
+
+    // Handle form submission
+    studentForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const className = document.getElementById('class').value;
+        const branch = document.getElementById('branch').value;
+        const phone = document.getElementById('phone').value;
+        const collegeEmail = document.getElementById('college_email').value;
+        const personalEmail = document.getElementById('personal_email').value;
+        const bloodGroup = document.getElementById('blood_group').value;
+
+        addStudent(name, age, className, branch, phone, collegeEmail, personalEmail, bloodGroup);
+        studentForm.reset();
+    });
+
+    // Add student
+    function addStudent(name, age, className, branch, phone, collegeEmail, personalEmail, bloodGroup) {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${name}</td>
+            <td>${age}</td>
+            <td>${className}</td>
+            <td>${branch}</td>
+            <td>${phone}</td>
+            <td>${collegeEmail}</td>
+            <td>${personalEmail}</td>
+            <td>${bloodGroup}</td>
+            <td class="actions">
+                <button onclick="editStudent(this)">Edit</button>
+                <button onclick="deleteStudent(this)">Delete</button>
+            </td>
+        `;
+
+        studentTable.appendChild(row);
+    }
+
+    // Edit student
+    function editStudent(button) {
+        const row = button.parentElement.parentElement;
+        const name = row.children[0].innerText;
+        const age = row.children[1].innerText;
+        const className = row.children[2].innerText;
+        const branch = row.children[3].innerText;
+        const phone = row.children[4].innerText;
+        const collegeEmail = row.children[5].innerText;
+        const personalEmail = row.children[6].innerText;
+        const bloodGroup = row.children[7].innerText;
+
+        document.getElementById('name').value = name;
+        document.getElementById('age').value = age;
+        document.getElementById('class').value = className;
+        document.getElementById('branch').value = branch;
+        document.getElementById('phone').value = phone;
+        document.getElementById('college_email').value = collegeEmail;
+        document.getElementById('personal_email').value = personalEmail;
+        document.getElementById('blood_group').value = bloodGroup;
+
+        deleteStudent(button);
+    }
+
+    // Delete student
+    function deleteStudent(button) {
+        const row = button.parentElement.parentElement;
+        row.remove();
+    }
+</script>
+
+</body>
+</html>
