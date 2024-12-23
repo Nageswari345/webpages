@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <img id="profile-picture" src="https://i.pinimg.com/236x/01/de/a8/01dea89c4175cf39d5367b4340705400.jpg" alt="Profile Picture">
+      <button id="change-picture-btn">Change Picture</button>
+    </div>
+    <div class="profile-info">
+      <h2 id="name">Nageswari</h2>
+      <p id="bio">I'm currently pursuing my btech 3rd year in SITE,dept of IT</p>
+      <p><strong>Email:</strong> <span id="email">nageswari.korapati@sasi.ac.in</span></p>
+      <p><strong>Phone:</strong> <span id="phone">8374073309</span></p>
+    </div>
+    <div id="edit-profile" class="edit-profile">
+      <h3>Edit Profile</h3>
+      <form id="edit-form">
+        <label for="edit-name">Name:</label>
+        <input type="text" id="edit-name" value="John Doe">
+
+        <label for="edit-bio">Bio:</label>
+        <textarea id="edit-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac enim eu turpis egestas.</textarea>
+
+        <label for="edit-email">Email:</label>
+        <input type="email" id="edit-email" value="john.doe@example.com">
+
+        <label for="edit-phone">Phone:</label>
+        <input type="tel" id="edit-phone" value="123-456-7890">
+
+        <button type="submit" id="save-btn">Save Changes</button>
+      </form>
+    </div>
+    <button id="edit-btn" onclick="toggleEdit()">Edit Profile</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html
