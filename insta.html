@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .login-container h1 {
+            font-size: 36px;
+            color: #262626;
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container button:hover {
+            background-color: #007bb5;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #8e8e8e;
+        }
+        .footer a {
+            color: #0095f6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Instagram</h1>
+        <form action="https://www.instagram.com" method="get">
+            <!-- Username Input -->
+            <input type="text" name="username" placeholder="Username" required><br>
+
+            <!-- Password Input -->
+            <input type="password" name="password" placeholder="Password" required><br>
+
+            <!-- Login Button -->
+            <button type="submit">Log In</button>
+        </form>
+
+        <div class="footer">
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
